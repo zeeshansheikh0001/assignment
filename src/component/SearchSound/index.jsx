@@ -101,12 +101,20 @@ const SearchSound = () => {
           </p>
           {sound.previews?.["preview-lq-mp3"] && (
             <>
-              <audio controls>
+              <audio
+                controls
+                onPlay={(e) =>
+                  document
+                    .querySelectorAll("audio")
+                    .forEach((a) => a !== e.target && a.pause())
+                }
+              >
                 <source
                   src={sound.previews["preview-lq-mp3"]}
                   type="audio/mp3"
                 />
               </audio>
+
               {downloadDisabled === sound.id ? (
                 <span className="loader" />
               ) : (

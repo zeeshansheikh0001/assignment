@@ -114,11 +114,13 @@ const RecordSound = () => {
           🟥 Stop
         </button>
       </div>
-      
+
       {voiceRecordUrl && (
         <>
           <div className="audio-player">
-            <audio controls src={voiceRecordUrl} type="audio/mp3"></audio>
+            <audio controls>
+              <source src={voiceRecordUrl} type="audio/mp3" />
+            </audio>
           </div>
           <div className="save-sound">
             <button onClick={createIndexedDB}>Save Recording</button>

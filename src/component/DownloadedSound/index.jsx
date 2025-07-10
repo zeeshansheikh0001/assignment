@@ -17,7 +17,7 @@ const DownloadedSounds = () => {
       indexedDB.databases().then((dbs) => {
         const isDownloaded = dbs.some((db) => db.name === dbName);
         if (isDownloaded) {
-          const freeSoundStore = indexedDB.open(dbName,  1);
+          const freeSoundStore = indexedDB.open(dbName, 1);
           freeSoundStore.onsuccess = (e) => {
             const freeSoundStoreDB = e.target.result;
             if (freeSoundStoreDB.objectStoreNames.contains(storeName)) {
@@ -33,7 +33,7 @@ const DownloadedSounds = () => {
       });
     };
 
-    openIndexDB("DownloadedSound",  "downloads", setDownloads);
+    openIndexDB("DownloadedSound", "downloads", setDownloads);
     openIndexDB("VoiceRecordedSound", "voiceRecord", setRecordings);
   }, []);
 
@@ -88,7 +88,14 @@ const DownloadedSounds = () => {
             />
             <div className="sound-card" key={sound.id}>
               <p className="sound-name">{sound.name}</p>
-              <audio controls>
+              <audio
+                controls
+                onPlay={(e) =>
+                  document
+                    .querySelectorAll("audio")
+                    .forEach((a) => a !== e.target && a.pause())
+                }
+              >
                 <source
                   src={URL.createObjectURL(sound.blob)}
                   type="audio/mpeg"
@@ -112,7 +119,14 @@ const DownloadedSounds = () => {
             />
             <div className="sound-card" key={sound.id}>
               <p className="sound-name">{sound.name}</p>
-              <audio controls>
+              <audio
+                controls
+                onPlay={(e) =>
+                  document
+                    .querySelectorAll("audio")
+                    .forEach((a) => a !== e.target && a.pause())
+                }
+              >
                 <source
                   src={URL.createObjectURL(sound.blob)}
                   type="audio/mpeg"
@@ -134,7 +148,16 @@ const DownloadedSounds = () => {
 
         {mixUrl && (
           <div style={{ marginTop: "20px" }}>
-            <audio controls src={mixUrl}></audio>
+            <audio
+              controls
+              onPlay={(e) =>
+                document
+                  .querySelectorAll("audio")
+                  .forEach((a) => a !== e.target && a.pause())
+              }
+            >
+              <source src={mixUrl} />
+            </audio>
           </div>
         )}
       </div>
