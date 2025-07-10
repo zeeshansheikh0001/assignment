@@ -1,0 +1,27 @@
+.tabs-container {
+  padding: 20px;
+
+  .tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    button {
+      padding: 10px 20px;
+      border-radius: 10px;
+      background-color: hsl(0, 0%, 93%);
+      border: none;
+      cursor: pointer;
+
+      &.active {
+        background-color: #333;
+        color: white;
+      }
+    }
+  }
+
+  .tab-content {
+    margin-top: 20px;
+  }
+}

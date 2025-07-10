@@ -1,0 +1,42 @@
+.downloaded-sounds-container {
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  gap: 20px;
+  .sound-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  .mixsound-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mixsound-button {
+    border: none;
+    background-color: #c55c5c;
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  .sound-container {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+}

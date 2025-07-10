@@ -1,0 +1,51 @@
+.voice-record {
+  //   border: 1px solid black;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.live-audio-visualizer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.record-sound-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  .record-button {
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+.audio-player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  padding: 24px;
+  margin: 0 auto;
+}
+
+.save-sound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
