@@ -11,11 +11,11 @@ const RecordSound = () => {
   const [saveSound, setSaveSound] = useState();
 
   const startRecording = async () => {
+      setVoiceRecordUrl(null);
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
 
     const voiceRecorder = new MediaRecorder(stream);
     let storeVoiceRecording = [];
-    console.log("Data", voiceRecord);
 
     voiceRecorder.ondataavailable = (e) => {
       storeVoiceRecording.push(e.data);
@@ -23,7 +23,6 @@ const RecordSound = () => {
 
     voiceRecorder.start();
     setVoiceRecord(voiceRecorder);
-    console.log("started", voiceRecorder);
 
     voiceRecorder.onstop = () => {
       const audioBlob = new Blob(storeVoiceRecording, { type: "audio/mp3" });
@@ -38,9 +37,6 @@ const RecordSound = () => {
     if (voiceRecord) {
       voiceRecord.stop();
       voiceRecord.stream.getTracks().forEach((track) => track.stop());
-      console.log("Recording stopped");
-    } else {
-      console.log("No recording in progress");
     }
   };
 

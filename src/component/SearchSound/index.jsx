@@ -67,7 +67,7 @@ const SearchSound = () => {
       });
 
       freeSoundStore.oncomplete = () => alert(`${name} downloaded`);
-      freeSoundStore.onerror = (err) => console.error("Save failed", err);
+      freeSoundStore.onerror = (err) => alert("Save failed", err);
     };
   };
 
